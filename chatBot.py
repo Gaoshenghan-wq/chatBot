@@ -47,6 +47,7 @@ def main():
     dispatcher.add_handler(CommandHandler("add", add))
     dispatcher.add_handler(CommandHandler("help", help_command))
     dispatcher.add_handler(CommandHandler("hello", hello))
+    dispatcher.add_handler(CommandHandler("gitFly", gitFly))
     # To start the bot:
     updater.start_polling()
     updater.idle()
@@ -69,6 +70,9 @@ def hello(update: Update, context: CallbackContext) -> None:
         update.message.reply_text(f"Good day, {name}!")
     except IndexError:
         update.message.reply_text("Usage: /hello <name>")
+
+def gitFly(update: Update, context: CallbackContext) -> None:
+    update.message.reply_text(f"git-Fly-test-finish!")
 
 def add(update: Update, context: CallbackContext) -> None:
     """Send a message when the command /add is issued."""
